@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INSERT TITLE</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="index.styles.css">
+</head>
+
+<body>
+
+  <div class="container mt-5 fade-in">
+    <div class="welcome-message">
+      Welcome to AIXANDRIA Demo
+    </div>
+    <div class="row welcome-message">
+      <div class="col">
+        <button type="button" class="btn btn-primary custom-button" onclick="window.location.href='classroom.html'">
+          Learn About Our Teaching Tools
+        </button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-primary custom-button" onclick="window.location.href='#gen-ai-section'">
+          What is GenAI?
+        </button>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx"
+            frameborder="0"></iframe>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="gen-ai-section" class="container mt-5 fade-in">
+
+    <div class="row">
+      <div class="col">
+        <h1 class="mb-4">Getting Up to Speed with Gen AI</h1>
+      </div>
+      <!-- Start Reading button with Font Awesome icon -->
+      <div class="col-3">
+        <button type="button" class="btn btn-primary custom-button mt-3" onclick="startReader()">
+          <i class="fas fa-play"></i> Start Reading
+        </button>
+      </div>
+      <!-- Stop Reading button with Font Awesome icon -->
+      <div class="col-3">
+        <button type="button" class="btn btn-danger custom-button mt-3" onclick="stopReader()">
+          <i class="fas fa-stop"></i> Stop Reading
+        </button>
+      </div>
+    </div>
+
+    <p class="lead">Certainly! "Gen AI" typically refers to the next generation of artificial intelligence systems that
+      are expected to be more advanced, flexible, and capable than current AI technologies. These systems are often
+      envisioned to possess a greater understanding of context, better adaptability, and improved problem-solving
+      capabilities.</p>
+
+    <h2 class="mt-4">Understanding AI Basics</h2>
+    <p>Before diving into Gen AI, it's essential to grasp the basics of artificial intelligence. AI refers to machines
+      or computer systems that can mimic human intelligence processes, such as learning, reasoning, problem-solving,
+      perception, and language understanding.</p>
+
+    <h2 class="mt-4">Evolution of AI</h2>
+    <p>AI has evolved over the years through various stages. From rule-based systems to machine learning and deep
+      learning, each phase has brought about significant advancements. Gen AI represents the next leap forward in this
+      evolutionary process.</p>
+
+    <h2 class="mt-4">Key Features of Gen AI</h2>
+    <ul>
+      <li><strong>Contextual Understanding:</strong> Gen AI systems aim to understand and interpret context more
+        effectively, enabling them to provide more relevant and personalized responses.</li>
+      <li><strong>Adaptability:</strong> These systems can adapt to changing circumstances and environments, learning
+        from new data and experiences.</li>
+      <li><strong>Human-like Interaction:</strong> Gen AI systems strive to communicate with humans in a more natural
+        and human-like manner, enhancing user experience and usability.</li>
+      <li><strong>Autonomous Learning:</strong> They are designed to learn autonomously from data without explicit
+        programming, continually improving their performance over time.</li>
+      <li><strong>Ethical Considerations:</strong> Gen AI also emphasizes ethical considerations, such as fairness,
+        transparency, and accountability, to ensure responsible AI deployment.</li>
+    </ul>
+
+    <h2 class="mt-4">Applications of Gen AI</h2>
+    <p>Gen AI has a wide range of applications, including:</p>
+    <ul>
+      <li><strong>Personal Assistants:</strong> Gen AI can power more intelligent and helpful virtual assistants capable
+        of understanding complex commands and context.</li>
+      <li><strong>Healthcare:</strong> In healthcare, Gen AI can assist doctors in diagnosing diseases, personalizing
+        treatment plans, and predicting patient outcomes.</li>
+      <li><strong>Finance:</strong> Gen AI can be used for risk assessment, fraud detection, and personalized financial
+        advice.</li>
+      <li><strong>Autonomous Vehicles:</strong> It can improve the safety and efficiency of autonomous vehicles by
+        better understanding and responding to complex driving scenarios.</li>
+      <li><strong>Education:</strong> Gen AI can personalize learning experiences for students, adapting teaching
+        methods to individual needs and learning styles.</li>
+    </ul>
+
+    <h2 class="mt-4">Challenges and Considerations</h2>
+    <ul>
+      <li><strong>Data Privacy:</strong> Gen AI systems rely heavily on data, raising concerns about privacy and data
+        protection.</li>
+      <li><strong>Bias and Fairness:</strong> Ensuring that Gen AI systems are unbiased and fair in their
+        decision-making is crucial to prevent reinforcing existing inequalities.</li>
+      <li><strong>Regulatory Frameworks:</strong> Developing appropriate regulatory frameworks is essential to govern
+        the development and deployment of Gen AI technologies responsibly.</li>
+      <li><strong>Ethical Use:</strong> Ethical considerations surrounding the use of Gen AI, including its potential
+        impact on employment and societal structures, must be carefully addressed.</li>
+    </ul>
+
+    <h2 class="mt-4">Learning Resources</h2>
+    <p>To further your understanding of Gen AI, you can explore online courses, tutorials, books, and articles on
+      artificial intelligence, machine learning, and related topics. Additionally, staying updated with the latest
+      developments in the field through reputable sources can help you keep pace with advancements in Gen AI.</p>
+
+
+  </div>
+
+  <script>
+    // Variable to hold the interval ID for the reader
+    let readerInterval;
+
+    function startReader() {
+      // Clear any existing reader interval
+      clearInterval(readerInterval);
+
+      // Select all paragraphs within the gen-ai-section
+      const paragraphs = document.querySelectorAll('#gen-ai-section p');
+
+      // Loop through each paragraph
+      let index = 0;
+      readerInterval = setInterval(() => {
+        // Highlight the paragraph
+        paragraphs[index].style.backgroundColor = 'yellow';
+
+        // Read the paragraph
+        speechSynthesis.speak(new SpeechSynthesisUtterance(paragraphs[index].textContent));
+
+        // Remove the highlight after reading
+        setTimeout(() => {
+          paragraphs[index].style.backgroundColor = '';
+        }, 3000); // Highlight duration
+
+        index++;
+
+        // Check if all paragraphs have been read
+        if (index >= paragraphs.length) {
+          clearInterval(readerInterval);
+        }
+      }, 5000); // Delay between paragraphs
+    }
+
+    function stopReader() {
+      // Clear the reader interval
+      clearInterval(readerInterval);
+
+      // Remove any highlights
+      const paragraphs = document.querySelectorAll('#gen-ai-section p');
+      paragraphs.forEach(paragraph => {
+        paragraph.style.backgroundColor = '';
+      });
+
+      // Cancel speech synthesis
+      speechSynthesis.cancel();
+    }
+  </script>
+
+
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+
+</html>
